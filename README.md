@@ -53,10 +53,10 @@ Also make sure the DB driver you plan to use is installed.
 
 ### Edit the config file you wish to use:
 
-    * development.ini: lots of verbose output, don't need to restart if
-      templates are modified. Suitable for development.
-    * production.ini faster than development, no debug output. Need to restart
-      if anything changes.
+* development.ini: lots of verbose output, don't need to restart if
+  templates are modified. Suitable for development.
+* production.ini faster than development, no debug output. Need to restart
+  if anything changes.
 
 NOTE: the "sqlalchemy.url" config **MUST** be modified to point to the
 appropriate DB.  Due to resource constraints, the application has been tested
