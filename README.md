@@ -20,19 +20,19 @@ http://dev.mysql.com/doc/employee/en/index.html).
 ```bash
 (emptest)[~/work/Employees-0.1] python ./setup.py install
 ```
-   or:
+or:
 ```bash
     easy_install Employees-0.1.tar.gz
 ```
-   or:
+or:
 ```bash
     easy_install Employees-0.1
 ```
-    or:
+or:
 ```bash
     pip install Employees-0.1.tar.gz
 ```
-   or:
+or:
 ```bash
     pip install Employees-0.1
 ```
@@ -63,7 +63,7 @@ The application has been tested against Sqlite3 as well.
 ```bash
     pserve development.ini
 ```
-    or:
+or:
 ```bash
     pserve production.ini
 ```
