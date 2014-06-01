@@ -14,7 +14,7 @@ sure virtualenv is installed on your sytem.
 [~/work] virtualenv emptest
 [~/work] . emptest/bin/activate
 ```
-
+Also make sure setuptools (or pip) is installed.
 
 ### Install the Employees-0.1.tar.gz package:
 The package can be installed using the "standard" installation mechanisms - one
@@ -27,7 +27,6 @@ of:
 ```
 
 #### Using easy_install
-If setuptools is installed:
 ```bash
     easy_install Employees-0.1.tar.gz
 ```
