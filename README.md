@@ -6,8 +6,9 @@ http://dev.mysql.com/doc/employee/en/index.html).
 
 ## Installation
 
-1. Create and activate a virtual environment (so that your system doesn't get
-   polluted):
+### Create and activate a virtual environment
+Use a virtual environment so that your system doesn't get polluted. Make
+sure virtualenv is installed on your sytem.
 
 ```bash
 [~/work] virtualenv emptest
@@ -15,12 +16,18 @@ http://dev.mysql.com/doc/employee/en/index.html).
 ```
 
 
-2. Install the Employees-0.1.tar.gz package:
+### Install the Employees-0.1.tar.gz package:
+The package can be installed using the "standard" installation mechanisms - one
+of:
+
+#### Direct Install
 
 ```bash
 (emptest)[~/work/Employees-0.1] python ./setup.py install
 ```
-or:
+
+#### Using easy_install
+If setuptools installed:
 ```bash
     easy_install Employees-0.1.tar.gz
 ```
@@ -28,7 +35,9 @@ or:
 ```bash
     easy_install Employees-0.1
 ```
-or:
+
+#### Using pip
+If pip installed:
 ```bash
     pip install Employees-0.1.tar.gz
 ```
@@ -42,7 +51,7 @@ Also make sure the DB driver you plan to use is installed.
 
 ## Configuring the Application
 
-1. Edit the config file you wish to use:
+### Edit the config file you wish to use:
 
     * development.ini: lots of verbose output, don't need to restart if
       templates are modified. Suitable for development.
@@ -59,7 +68,7 @@ The application has been tested against Sqlite3 as well.
 
 ## Running the Application
 
-1. Start the server:
+### Start the server:
 ```bash
     pserve development.ini
 ```
@@ -69,7 +78,7 @@ or:
 ```
 
 
-2. Point your browser to the configured IP:PORT.
+### Point your browser to the configured IP:PORT.
 
 Login is any user's Firstname.Lastname
 Password is the user's employee number
