@@ -27,7 +27,7 @@ of:
 ```
 
 #### Using easy_install
-If setuptools installed:
+If setuptools is installed:
 ```bash
     easy_install Employees-0.1.tar.gz
 ```
@@ -37,7 +37,7 @@ or:
 ```
 
 #### Using pip
-If pip installed:
+If pip is installed:
 ```bash
     pip install Employees-0.1.tar.gz
 ```
