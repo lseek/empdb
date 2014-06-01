@@ -1,0 +1,8 @@
+0.0
+---
+
+-  Initial version
+
+0.1
+---
+- Got it working with a (remote) MySQL DB.

@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Login Required</title>
+    <meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name='keywords' content='python web employee_db' />
+    <meta name='description' content='Web application for Displaying MySQL sample db records' />
+
+    <!-- Bootstrap -->
+    <link href='//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/css/bootstrap-theme-min.css' rel='stylesheet'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'></script>
+      <script src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'></script>
+    <![endif]-->
+    <style type='text/css'>
+      .error_msg {
+        color: #ff0000;
+        margin-bottom: 1ex;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-4'>
+          <h1>Login</h1>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='col-md-4 error_msg' tal:condition="err_msg">
+          ${err_msg}
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='col-md-4'>
+          <form action='${url}' method='POST' role='form'>
+            <div class='form-group'>
+              <label for='user_name'>Username (<i>Firstname.Lastname</i>)</label>
+              <input type='text' class='form-control' id='user_name' name='login' value='${login}'/>
+            </div><!--form group-->
+            <div class='form-group'>
+              <label for='user_pass'>Password</label>
+              <input type='password' class='form-control' id='user_pass' name='password' value='${password}'/><br>
+            </div><!--form group-->
+            <button type='submit' name='submitted' class='btn btn-primary' value='Log In'>Log In</button>
+          </form>
+        </div><!--login form-->
+      </div><!--row-->
+    </div><!--container-->
+  </body>
+</html>

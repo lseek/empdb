@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>Employee Details for: ${emp.first_name} ${emp.last_name}</title>
+    <meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name='keywords' content='python web employee_db' />
+    <meta name='description' content='Web application for Displaying MySQL sample db records' />
+
+    <!-- Bootstrap -->
+    <link href='//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/css/bootstrap-theme-min.css' rel='stylesheet'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'></script>
+      <script src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'></script>
+    <![endif]-->
+  </head>
+
+<?python
+import datetime
+
+
+def years_months(when):
+  today = datetime.date.today()
+  delta = today - when
+  years = delta.days // 365
+  months = (delta.days % 365) // 30
+  if months == 12:
+    years += 1
+    months = 0
+  year_str = 'years' if years > 1 else 'year'
+  month_str ='months' if months > 1 else 'month'
+  if months:
+    return 'approx {} {}, {} {}'.format(years, year_str, months, month_str)
+  else:
+    return 'approx {} {}'.format(years, year_str, months, month_str)
+
+dept_list = request.referrer
+if not dept_list:
+    dept_list = request.route_url('show_dept', dept_no=manage)
+?>
+
+  <body>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-10'>
+          <h1>Employee Details for: ${emp.first_name} ${emp.last_name}</h1>
+        </div>
+        <div class='col-md-1'>
+          <a href='${request.route_url("logout")}'>Logout</a>
+        </div>
+        <div class='clearfix'></div>
+      </div>
+
+      <dl class='dl-horizontal'>
+        <dt>First Name</dt><dd>${emp.first_name}</dd>
+        <dt>Last Name</dt><dd>${emp.last_name}</dd>
+        <dt>Gender</dt><dd>${emp.gender}</dd>
+        <dt>Current Department</dt><dd>${emp.curr_dept.dept_name}</dd>
+        <dt>Current Title</dt><dd>${str(emp.curr_title)}</dd>
+        <dt>Date of joining</dt><dd>${emp.hire_date}</dd>
+        <dt>Years in company</dt><dd>${years_months(emp.hire_date)}</dd>
+        <dt>Date of Birth</dt><dd>${emp.birth_date}</dd>
+        <dt>Age</dt><dd>${years_months(emp.birth_date)}</dd>
+        <dt>Salary</dt><dd>${emp.curr_salary.salary}</dd>
+      </dl>
+
+      <p tal:condition='manage'><a
+           href='${dept_list}'>Back to Department Employee List</a></p>
+    </div>
+  </body>
+</html>
